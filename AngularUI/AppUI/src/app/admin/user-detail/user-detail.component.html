@@ -1,0 +1,120 @@
+
+<div class="loading-spinner" *ngIf="isLoadingResults">
+    <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+</div>
+<div class="padAll10 ">
+    <h3><label>{{lblAddEditUser}}</label> User</h3>
+    <form [formGroup]="userDetailsForm">
+        <div class="padT10">
+            <h5> Login Details </h5>
+            <hr />
+        </div>
+        <div class="row padT10">
+            <label class="col-sm-2 col-form-label">Username<span class="textred">*</span></label>
+            <div class="col-sm-5">
+                <input formControlName="username" class="form-control" type="text" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" autofocus>
+                <div class="floatL">&nbsp;</div>
+                <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                    <div *ngIf="f.username.errors.required">Username is required</div>
+                </div>
+            </div>
+        </div>
+        <div class="row padT10">
+            <label class="col-sm-2 col-form-label">Password<span class="textred">*</span></label>
+            <div class="col-sm-5">
+                <input formControlName="password" class="form-control" type="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+                <div class="floatL">&nbsp;</div>
+                <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                    <div *ngIf="f.password.errors.required">Password is required</div>
+                    <div *ngIf="f.password.errors.minlength">Password must be at least 4 characters</div>
+                </div>
+            </div>
+        </div>
+        <div class="row padT10">
+            <label class="col-sm-2 col-form-label">Confirm Password<span class="textred">*</span></label>
+            <div class="col-sm-5">
+                <input formControlName="confirmpassword" class="form-control" type="password" [ngClass]="{ 'is-invalid': submitted && f.confirmpassword.errors }">
+                <div class="floatL">&nbsp;</div>
+                <div *ngIf="submitted && f.confirmpassword.errors" class="invalid-feedback">
+                    <div *ngIf="f.confirmpassword.errors.required">Confirm Password is required</div>
+                    <div *ngIf="f.confirmpassword.errors.minlength">Confirm Password must be at least 4 characters</div>
+                    <div *ngIf="f.confirmpassword.errors?.MatchPassword"> Passwords do not match </div>
+                </div>
+            </div>
+        </div>
+        <div class="padT10">
+            <h5> User Details </h5>
+            <hr />
+        </div>
+        <div class="row padT10" *ngIf="hasUserId">
+            <label class="col-sm-2 ">User Id</label>
+            <span class="col-sm-5 ">{{userId}}</span>
+        </div>
+        <div class="row padT20">
+            <label class="col-sm-2 col-form-label">First Name<span class="textred">*</span></label>
+            <div class="col-sm-5">
+                <input formControlName="firstname" class="form-control" type="text" [ngClass]="{ 'is-invalid': submitted && f.firstname.errors }">
+                <div class="floatL">&nbsp;</div>
+                <div *ngIf="submitted && f.firstname.errors" class="invalid-feedback">
+                    <div *ngIf="f.firstname.errors.required">First name is required</div>
+                </div>
+            </div>
+        </div>
+        <div class="row padT10">
+            <label class="col-sm-2 col-form-label">Last Name<span class="textred">*</span></label>
+            <div class="col-sm-5">
+                <input formControlName="lastname" class="form-control" type="text" [ngClass]="{ 'is-invalid': submitted && f.lastname.errors }">
+                <div class="floatL">&nbsp;</div>
+                <div *ngIf="submitted && f.lastname.errors" class="invalid-feedback">
+                    <div *ngIf="f.lastname.errors.required">Last name is required</div>
+                </div>
+            </div>
+        </div>
+        <div class="row padT10">
+            <label class="col-sm-2 col-form-label">Email<span class="textred">*</span></label>
+            <div class="col-sm-5">
+                <input formControlName="email" class="form-control" type="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+                <div class="floatL">&nbsp;</div>
+                <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                    <div *ngIf="f.email.errors.required">Email is required</div>
+                    <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group row padT10">
+            <label class="col-sm-2 col-form-label">Role<span class="textred">*</span></label>
+            <div class="col-sm-3">
+                <select class="form-control" formControlName="ddrole">
+                    <option *ngFor="let op of roleOptions" [value]="op.roleId">
+                        {{op.roleDisplayName}}
+                    </option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group row padT10">
+            <label class="col-sm-2 col-form-label">User Type<span class="textred">*</span></label>
+            <div class="col-sm-3">
+                <select class="form-control" formControlName="ddusertype">
+                    <option *ngFor="let op of userTypeOptions" [value]="op.userTypeId">
+                        {{op.userTypeDisplayName}}
+                    </option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group row padT40 ">
+            <div class="col-sm-2">
+                <button id="btnSave" class="btn btn-dark btn-block" type="button" [disabled]="isSaving" (click)="save()">
+                    Save
+                </button>
+            </div>
+            <div class="col-sm-2">
+                <button id="btnCancel" class="btn btn-dark btn-block" type="button" (click)="goUserListPage()">
+                    Cancel
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+

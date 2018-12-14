@@ -1,0 +1,39 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <TypeScriptToolsVersion>3.0</TypeScriptToolsVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="AppUI\dist\**" />
+    <Compile Remove="AppUI\e2e\**" />
+    <Content Remove="AppUI\dist\**" />
+    <Content Remove="AppUI\e2e\**" />
+    <EmbeddedResource Remove="AppUI\dist\**" />
+    <EmbeddedResource Remove="AppUI\e2e\**" />
+    <None Remove="AppUI\dist\**" />
+    <None Remove="AppUI\e2e\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="AppUI\src\app\admin\content-detail\content-detail.component.spec.ts" />
+    <None Remove="AppUI\src\app\admin\content-list\content-list.component.css" />
+    <None Remove="AppUI\src\app\admin\content-list\content-list.component.spec.ts" />
+    <None Remove="AppUI\src\app\admin\user-detail-mat\user-detail-mat.component.spec.ts" />
+    <None Remove="AppUI\src\app\admin\user-detail\user-detail.component.spec.ts" />
+    <None Remove="AppUI\src\app\admin\user-list\user-list.component.spec.ts" />
+    <None Remove="AppUI\src\app\dashboard\dashboard.component.css" />
+    <None Remove="AppUI\src\app\dashboard\dashboard.component.spec.ts" />
+    <None Remove="AppUI\src\app\layouts\admin-layout\admin-layout.component.spec.ts" />
+    <None Remove="AppUI\src\app\layouts\admin-login-layout\admin-login-layout.component.spec.ts" />
+    <None Remove="AppUI\src\app\layouts\client-layout\client-layout.component.spec.ts" />
+    <None Remove="AppUI\src\app\layouts\client-login-layout\client-login-layout.component.spec.ts" />
+    <None Remove="AppUI\src\app\_guards\admin.guard.spec.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+</Project>

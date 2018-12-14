@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2026
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApi", "WebAPI\WebApi.csproj", "{0E954B62-9D58-4275-B9CE-BD4E85C5A93D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AngularUI", "AngularUI\AngularUI.csproj", "{191682CA-E27F-4C62-8F8A-F383F5B8285E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAL", "DAL\DAL.csproj", "{B54FE0D1-9F89-4C5D-84F8-606C71F199B9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0E954B62-9D58-4275-B9CE-BD4E85C5A93D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E954B62-9D58-4275-B9CE-BD4E85C5A93D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E954B62-9D58-4275-B9CE-BD4E85C5A93D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E954B62-9D58-4275-B9CE-BD4E85C5A93D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{191682CA-E27F-4C62-8F8A-F383F5B8285E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{191682CA-E27F-4C62-8F8A-F383F5B8285E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{191682CA-E27F-4C62-8F8A-F383F5B8285E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B54FE0D1-9F89-4C5D-84F8-606C71F199B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B54FE0D1-9F89-4C5D-84F8-606C71F199B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B54FE0D1-9F89-4C5D-84F8-606C71F199B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B54FE0D1-9F89-4C5D-84F8-606C71F199B9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1FC2945E-D814-47D5-8F41-845C0B1F2171}
+	EndGlobalSection
+EndGlobal

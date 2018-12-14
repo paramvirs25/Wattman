@@ -1,0 +1,75 @@
+
+<div class="padAll10 ">
+    <h3 class="padB20 ">Contents List</h3>
+    <div class="form-group row">
+        <div class="col-sm-4">
+            <input class="form-control" type="search" placeholder="Search Contents.." (keyup)="applyFilter($event.target.value)" aria-label="Search">
+        </div>
+        <div class="col-sm-8">
+            <button class="btn btn-dark floatR" (click)="goAddContentDetails()"><i class="fas fa-plus-square"></i>&nbsp; Add Content</button>
+        </div>
+    </div>
+    <div class="mTop20 list-container mat-elevation-z8">
+        <div class="list-loading-shade"
+             *ngIf="isLoadingResults">
+            <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+        </div>
+
+        <div class="list-table-container">
+            <table mat-table [dataSource]="gridDataSource" matSort>
+
+                <ng-container matColumnDef="contentId">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Content Id</th>
+                    <td mat-cell *matCellDef="let row">{{row.contentId}}</td>
+                </ng-container>
+                <ng-container matColumnDef="contentName">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+                    <td mat-cell *matCellDef="let row">{{row.contentName}}</td>
+                </ng-container>
+                <ng-container matColumnDef="contentUrl">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>URL</th>
+                    <td mat-cell *matCellDef="let row">
+                        <a href="{{row.contentUrl}}" target="_blank">{{row.contentUrl}}</a>
+                    </td>
+                </ng-container>
+                <ng-container matColumnDef="contentType">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Type</th>
+                    <td mat-cell *matCellDef="let row">{{row.contentType}}</td>
+                </ng-container>
+                <ng-container matColumnDef="actions">
+                    <th mat-header-cell *matHeaderCellDef>Actions</th>
+                    <td mat-cell *matCellDef="let row">
+                        <button type="button" class="btn btn-outline-dark btn-sm" routerLink="/contentdetail/{{row.contentId}}">Edit</button>
+                        &nbsp;&nbsp;&nbsp;
+                        <button type="button" class="btn btn-outline-dark btn-sm" (click)="onDeleteModal(row)">Delete</button>
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Delete Modal -->
+<div class="backdrop" [ngStyle]="{'display': showModal ? 'block' : 'none'}"></div>
+<div class="modal" role="dialog" aria-labelledby="deleteModalLabel" [ngStyle]="{'display': showModal ? 'block' : 'none'}">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteModalLabel">Delete Content</h5>
+                <button type="button" class="close" aria-label="Close" (click)="closeModal()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p [innerHTML]="lblmodalContent"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-dark" (click)="deleteContent()">Yes</button>&nbsp;
+                <button type="button" class="btn btn-outline-dark" (click)="closeModal()">No</button>
+            </div>
+        </div>
+    </div>
+</div>

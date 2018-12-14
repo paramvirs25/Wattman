@@ -1,0 +1,46 @@
+
+<div class="loading-spinner" *ngIf="isLoadingResults">
+    <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+</div>
+<div class="padAll10">
+    <h3><label>{{lblAddEditContent}}</label></h3>    
+    <form [formGroup]="contentDetailsForm">
+        <div class="padT30">
+            <h5> Content Details </h5>
+            <hr />
+        </div>
+        <div class="padT10">
+            <mat-form-field class="matCtrl">
+                <input matInput formControlName="contentname" placeholder="Content Name" [errorStateMatcher]="matcher" required>
+                <mat-error *ngIf="contentname.hasError('required')"> Content Name is required </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="padT10">
+            <mat-form-field class="matCtrl">
+                <mat-select formControlName="ddcontenttype" placeholder="Content Type">
+                    <mat-option *ngFor="let op of contentTypeOptions" [value]="op.contentTypeName">
+                        {{op.contentTypeName}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="padT10">
+            <mat-form-field class="matCtrlBig">
+                <input matInput formControlName="contenturl" placeholder="Content URL" [errorStateMatcher]="matcher" required>
+                <mat-error *ngIf="contenturl.hasError('required')">Content URL is required </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="row padT50">
+            <div class="col-sm-2">
+                <button id="btnSave" class="btn btn-dark btn-block" type="button" [disabled]="isSaving" (click)="save()">
+                    Save
+                </button>
+            </div>
+            <div class="col-sm-2">
+                <button id="btnCancel" class="btn btn-dark btn-block" type="button" (click)="goContentListPage()">
+                    Cancel
+                </button>
+            </div>
+        </div>
+    </form>
+</div>

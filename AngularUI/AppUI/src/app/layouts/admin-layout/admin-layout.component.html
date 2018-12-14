@@ -1,0 +1,60 @@
+
+<div id="mainDiv">
+
+  <!--Navigation Bar-->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="form-inline centerContent">
+      <a class="navbar-brand text-light" routerLink="/userlist"  routerLinkActive="active"> ENERGY Admin</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+              <li class="nav-item">
+                  <a class="nav-link" routerLink="/userlist" routerLinkActive="active">Users </a>
+              </li>
+              <!--<li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Courses
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item"> Course 1 </a>
+                      <a class="dropdown-item"> Course 2 </a>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item"> Course 3 </a>
+                      <a class="dropdown-item"> Course 4 </a>
+                  </div>
+              </li>-->
+              <li class="nav-item">
+                  <a class="nav-link" routerLink="/contentlist" routerLinkActive="active">Contents </a>
+              </li>
+          </ul>
+        <ul class="navbar-nav ml-auto">
+          <li>
+            <form class="form-inline">
+              <input class="form-control mr-sm-2" type="search" placeholder="Search courses.." aria-label="Search">
+              <button class="btn btn-outline-light" type="submit">Search</button>
+            </form>
+          </li>
+          <li class="nav-item dropdown ml-xl-5" *ngIf="currentUser">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+              {{currentUser.userFirstName}} {{currentUser.userLastName}} <i class="fas fa-user-circle"></i>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" routerLink="/userdetailmat/{{currentUser.userId}}/{{passloggedinUser}}" routerLinkActive="active"> Edit Profile </a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" (click)="goAdminLoginPage()"> Sign Out </a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div style="height:100%;">
+      <div class="centerContent BgWhite padContent">
+          <router-outlet></router-outlet>
+      </div>
+  </div>
+</div>
+

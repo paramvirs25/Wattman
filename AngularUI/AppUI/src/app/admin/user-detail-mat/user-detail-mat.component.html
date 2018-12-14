@@ -1,0 +1,109 @@
+
+<div class="loading-spinner" *ngIf="isLoadingResults">
+    <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+</div>
+<div class="padAll10">
+    <h3><label>{{lblAddEditUser}}</label></h3>
+    <form [formGroup]="loginDetailsForm">
+        <div class="row padT20">
+            <div class="col-sm-2" style="min-width:150px;">
+                <h5> Login Details </h5>
+            </div>
+            <mat-slide-toggle *ngIf="isEditMode" (change)="isShowLoginCtrls = !isShowLoginCtrls"></mat-slide-toggle>
+        </div>
+        <div *ngIf="isShowLoginCtrls">
+            <hr />
+            <div class="padT10">
+                <mat-form-field class="matCtrl">
+                    <input matInput formControlName="username" placeholder="Username" [errorStateMatcher]="matcher" required>
+                    <mat-error *ngIf="username.hasError('required')"> Username is required </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="padT10">
+                <mat-form-field class="matCtrl">
+                    <input matInput formControlName="password" placeholder="Password" [type]="passhide ? 'password' : 'text'" [errorStateMatcher]="matcher" required>
+                    <mat-icon matSuffix (click)="passhide = !passhide">{{passhide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    <mat-error *ngIf="password.hasError('required')"> Password is required </mat-error>
+                    <mat-error *ngIf="password.hasError('minlength')"> Password must be at least 4 characters </mat-error>
+                </mat-form-field>
+                <mat-form-field class="matCtrl">
+                    <input matInput formControlName="confirmpass" placeholder="Confirm Password" [type]="confirmhide ? 'password' : 'text'" [errorStateMatcher]="matcher" required>
+                    <mat-icon matSuffix (click)="confirmhide = !confirmhide">{{confirmhide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    <mat-error *ngIf="confirmpass.hasError('required')">Confirm Password is required </mat-error>
+                    <mat-error *ngIf="confirmpass.hasError('minlength')">Confirm Password must be at least 4 characters </mat-error>
+                    <mat-error *ngIf="confirmpass.hasError('MatchPassword')">Passwords do not match </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="row padT30" *ngIf="isEditMode">
+                <div class="col-sm-2">
+                    <button id="btnSaveLoginDetails" class="btn btn-dark btn-block" type="button" [disabled]="isSavingLoginDetails" (click)="saveLoginDetails()">
+                        Save Login
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>
+    <form [formGroup]="userDetailsForm">
+        <div class="padT30">
+            <h5> User Details </h5>
+            <hr />
+        </div>
+        <div class="padT10">
+            <mat-form-field class="matCtrl">
+                <input matInput formControlName="firstname" placeholder="First Name" [errorStateMatcher]="matcher" required>
+                <mat-error *ngIf="firstname.hasError('required')"> First Name is required </mat-error>
+            </mat-form-field>
+            <mat-form-field class="matCtrl">
+                <input matInput formControlName="lastname" placeholder="Last Name" [errorStateMatcher]="matcher" required>
+                <mat-error *ngIf="lastname.hasError('required')"> Last Name is required </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="padT10">
+            <mat-form-field class="matCtrl">
+                <input matInput formControlName="email" placeholder="Email" [errorStateMatcher]="matcher" required>
+                <mat-error *ngIf="email.hasError('required')"> Email is required </mat-error>
+                <mat-error *ngIf="email.hasError('email')"> Email must be a valid email address </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="padT10" *ngIf="!isloggedInUser">
+            <mat-form-field class="matCtrl">
+                <mat-select formControlName="ddrole" placeholder="Roles">
+                    <mat-option *ngFor="let op of roleOptions" [value]="op.roleId">
+                        {{op.roleDisplayName}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field class="matCtrl">
+                <mat-select formControlName="ddusertype" placeholder="User Type">
+                    <mat-option *ngFor="let op of userTypeOptions" [value]="op.userTypeId">
+                        {{op.userTypeDisplayName}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="row padT30" *ngIf="isEditMode">
+            <div class="col-sm-2">
+                <button id="btnSaveUserDetails" class="btn btn-dark btn-block" type="button" [disabled]="isSavingUserDetails" (click)="saveUserDetails()">
+                    Save User
+                </button>
+            </div>
+            <div class="col-sm-2">
+                <button id="btnCancelUser" class="btn btn-dark btn-block" type="button" (click)="goUserListPage()">
+                    Back
+                </button>
+            </div>
+        </div>
+    </form>
+    <div class="row padT50" *ngIf="!isEditMode">
+        <div class="col-sm-2">
+            <button id="btnSave" class="btn btn-dark btn-block" type="button" [disabled]="isSaving" (click)="saveforCreate()">
+                Save
+            </button>
+        </div>
+        <div class="col-sm-2">
+            <button id="btnCancel" class="btn btn-dark btn-block" type="button" (click)="goUserListPage()">
+                Cancel
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,166 @@
+
+body, html {
+    height: 100%;
+    background-color: #f9f9f9;
+}
+
+#mainDiv {
+  height: 100%;
+}
+.centerContent {
+  margin: auto;
+  width: 75%;
+  max-width: 1200px;
+  height: 100%;
+}
+.headerLogin {
+  -webkit-border-radius: 5px 5px 0px 0px;
+  border-radius: 5px 5px 0px 0px;
+  padding: 5px 5px 5px 5px;
+}
+.tabContentStyle {
+  font-family: Tahoma;
+  font-size: 12px;
+}
+.divScrollable {
+  height: 250px;
+  overflow-y: auto;
+}
+.userIconBig {
+  font-size: 80pt;
+  color: lightgrey;
+}
+.BgWhite {
+  background-color: white;
+}
+.textred {
+    color: red;
+    font-weight: bold;
+}
+
+.snackBar-customClass {
+  font-weight: bold;
+}
+
+.loading-spinner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.15);
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.backdrop {
+    background-color: rgba(0,0,0,0.3);
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 100%;
+}
+
+.floatL {  float: left;}
+.floatR {  float: right;}
+
+.padContent {  padding: 40px 10px 40px 10px;}
+
+.padAll10 { padding: 10px 10px 10px 10px; }
+.padAll20 { padding: 20px 20px 20px 20px; }
+
+.padL10 {  padding-left: 10px;}
+.padL20 {  padding-left: 20px;}
+.padL30 {  padding-left: 30px;}
+.padL40 {  padding-left: 40px;}
+.padL50 {  padding-left: 50px;}
+
+.padT10 {  padding-top: 10px;}
+.padT20 {  padding-top: 20px;}
+.padT30 {  padding-top: 30px;}
+.padT40 {  padding-top: 40px;}
+.padT50 {  padding-top: 50px;}
+
+.padR10 {  padding-right: 10px;}
+.padR20 {  padding-right: 20px;}
+.padR30 {  padding-right: 30px;}
+.padR40 {  padding-right: 40px;}
+.padR50 {  padding-right: 50px;}
+
+.padB10 {  padding-bottom: 10px;}
+.padB20 {  padding-bottom: 20px;}
+.padB30 {  padding-bottom: 30px;}
+.padB40 {  padding-bottom: 40px;}
+.padB50 {  padding-bottom: 50px;}
+
+.mBottom10 {  margin-bottom: 10px;}
+.mBottom15 {  margin-bottom: 15px;}
+.mBottom20 {  margin-bottom: 20px;}
+.mBottom25 {  margin-bottom: 25px;}
+.mBottom30 {  margin-bottom: 30px;}
+
+.mTop10 {  margin-top: 10px;}
+.mTop15 {  margin-top: 15px;}
+.mTop20 {  margin-top: 20px;}
+.mTop25 {  margin-top: 25px;}
+.mTop30 {  margin-top: 30px;}
+
+.mLeft10 {  margin-left: 10px;}
+.mLeft15 {  margin-left: 15px;}
+.mLeft20 {  margin-left: 20px;}
+.mLeft25 {  margin-left: 25px;}
+.mLeft30 {  margin-left: 30px;}
+
+.mRight10 {  margin-right: 10px;}
+.mRight15 {  margin-right: 15px;}
+.mRight20 {  margin-right: 20px;}
+.mRight25 {  margin-right: 25px;}
+.mRight30 {  margin-right: 30px;}
+
+
+/*Default mat grid styling*/
+/* Structure */
+.mat-table {
+    width: 100%;
+}
+.mat-table th {
+    font: bold 14px arial;
+    background-color: lightgray;
+}
+
+.list-container {
+    position: relative;
+}
+.list-table-container {
+    position: relative;
+    max-height: 400px;
+    overflow: auto;
+}
+.list-loading-shade {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 56px;
+    right: 0;
+    background: rgba(0, 0, 0, 0.15);
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.matCtrl {
+    width: 400px;
+    padding-left: 5px;
+    padding-right: 40px;
+}
+.matCtrlBig {
+    width: 500px;
+    padding-left: 5px;
+    padding-right: 40px;
+}
